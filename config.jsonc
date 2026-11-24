@@ -36,16 +36,6 @@
     }
   },
   "modules": [
-  
-    { // actually results in blocks not circles...
-      "type": "colors",
-      "symbol": "cirlce",
-      "paddingLeft": 11,
-      "block":{
-      "range": [1, 7] 
-      }
-    },
-    "break", // code for break...
     {
      "type": "custom", // MEOWStart
      // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
