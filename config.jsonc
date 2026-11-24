@@ -79,12 +79,6 @@
       "format": "{name<29} {#90}"
     },
     {
-      "type": "bios",
-      "key": "BIOS:",
-      "keyColor": "#FAB387",
-      "format": "{version<29} {#90}"
-    },
-    {
       "type": "gpu",
       "key": "GPU:",
       "keyColor": "#FAB387",
