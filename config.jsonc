@@ -7,21 +7,21 @@
   },
   "logo": {
     "type": "file",
-    "source": "/home/ant/.config/fastfetch/ascii.txt",
+    "source": "~/.config/fastfetch/ascii.txt",
     "color": {
-      "1": "#F0CCFF",
-      "2": "#8A62A6",
-      "3": "#F5C2E7",
-      "4": "#FAB387",
-      "5": "#F9E2AF",
-      "6": "#A6E3A1",
-      "7": "#94E2D5",
-      "8": "#89DCEB",
-      "9": "#74C7EC"
+      "1": "#89DCEB",
+      "2": "green",
+      "3": "yellow",
+      "4": "blue",
+      "5": "magenta",
+      "6": "cyan",
+      "7": "white",
+      "8": "red",
+      "9": "magenta"
     },
     "padding": {
       "top": 1,
-      "right": 10 // moving the module boxes to the right
+      "right": 2 // keep modules closer to the logo so rows fit in narrow terminals
     }
   },
   "display": {
@@ -49,69 +49,69 @@
     {
      "type": "custom", // MEOWStart
      // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "{#90}┌───────{#} {##F5C2E7}>> Welcome back! << {#}{#90}───────┐{#}"
+      "format": "{#90}┌───────{#} {#36}>> Welcome back! << {#}{#90}───────┐{#}"
     },    
 
    // "break",  
     {
       "type": "title", // User name and host
       "key": "User:",
-      "format": "{##F5C2E7}{user-name}{#}{##CDD6F4}@{#}{##89DCEB}{host-name} {#}{#90}│{#}"
+      "format": "{##CA9EE6}{user-name}{#}{##CDD6F4}@{#}{##89DCEB}{host-name} {#}{#90}"
 
-      //"format": "{user-name}{#90}@{#}{host-name<25}{#}{#90}│{#}",
+      //"format": "{user-name}{#90}@{#}{host-name<25}{#}{#90}",
  
- //     "format": "{user-name}{@}{host-name<35} {#90}│{#}"
+ //     "format": "{user-name}{@}{host-name<35} {#90}"
 
     },
   //  "break",
     {
             "type": "custom", // MEOW End
-            "format": "{#90}└─────────────────────────────────────────┘{#}"
+            "format": "{#90}└───────────────────────────────────┘{#}"
     },
     "break",
         {
      "type": "custom", // Soft and Hardware Start
      // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "{#90}┌────────── {#}{##F5C2E7}Soft- and Hardware {#}{#90}──────────┐{#}"
+      "format": "{#90}┌────────── {#}{#32}Soft- and Hardware {#}{#90}──────────┐{#}"
     },    
     {
       "type": "os",
       "key": "OS:",
       "keyColor": "#89DCEB",
-      "format": "{name} {version} {codename} {arch<13} {#90}│{#}" // arch<13 == 13 spaces behind it otherwise cut off... 
+      "format": "{name} {version} {arch} {#90}│{#}" 
 
     },
     {
       "type": "cpu",
       "key": "CPU:",
       "showPeCoreCount": true,
-      "keyColor": "#F5C2E7",
-      "format": "{name<29} {#90}│{#}"
+      "keyColor": "#CA9EE6",
+      "format": "{name<29} {#90}"
     },
     {
       "type": "bios",
       "key": "BIOS:",
       "keyColor": "#FAB387",
-      "format": "{version<29} {#90}│{#}"
+      "format": "{version<29} {#90}"
     },
     {
       "type": "gpu",
       "key": "GPU:",
       "keyColor": "#FAB387",
-      "format": "{name<24}      {#90}│{#}" // somespacing was added manually here, since
+      "format": "{name<24}      {#90}" // somespacing was added manually here, since
                                            // it prduces two lines, given integrated and dedicated GPU...
     },
     {
       "type": "memory",
       "key": "MEMORY:",
       "keyColor": "#A6E3A1",
-      "format": "{used} / {total} ({##F5C2E7}{percentage}){#}   {#90}│{#}" // here as well
+      "format": "{used} / {total} ({#36}{percentage}){#}   {#90}" // here as well
     },
     {
       "type": "disk",
       "key": "DISK:",
       "keyColor": "#94E2D5",
-      "format": "{size-used} / {size-total} ({##F5C2E7}{size-percentage}){#} {#90}│{#}"
+      "format": "{size-used} / {size-total} ({#36}{size-percentage}){#} {#90}"
     },
     {
             "type": "custom", // End Hardware
