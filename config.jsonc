@@ -1,15 +1,16 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "display": {
+    "separator": " ",
     "key": {
-      "width": 12 // Adjust this number to increase or decrease the tab spacing
+      "width": 12
     }
   },
   "logo": {
     "type": "file",
     "source": "~/.config/fastfetch/ascii.txt",
     "color": {
-      "1": "#89DCEB",
+      "1": "#d2bcfd",
       "2": "green",
       "3": "yellow",
       "4": "blue",
@@ -21,94 +22,117 @@
     },
     "padding": {
       "top": 1,
-      "right": 2 // keep modules closer to the logo so rows fit in narrow terminals
-    }
-  },
-  "display": {
-    "separator": " ",
-    "constants": [ // not used in the code below
-    "─────────────────", // {$1}
-    "│", // {$2} Left/right border
-    " " // {$3} Border padding 
-],
-    "key": {
-        "width": 12
+      "right": 2
     }
   },
   "modules": [
+    "break",
     {
-     "type": "custom", // MEOWStart
-     // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "{#90}┌───────{#} {#36}>> Welcome back! << {#}{#90}───────┐{#}"
-    },    
-
-   // "break",  
-    {
-      "type": "title", // User name and host
-      "key": "User:",
-      "format": "{##CA9EE6}{user-name}{#}{##CDD6F4}@{#}{##89DCEB}{host-name} {#}{#90}"
-
-      //"format": "{user-name}{#90}@{#}{host-name<25}{#}{#90}",
- 
- //     "format": "{user-name}{@}{host-name<35} {#90}"
-
+      "type": "custom",
+      "format": "{##948f99}┌───────{#} {##d2bcfd}>> Welcome back! << {#}{##948f99}───────┐{#}"
     },
-  //  "break",
     {
-            "type": "custom", // MEOW End
-            "format": "{#90}└───────────────────────────────────┘{#}"
+      "type": "title",
+      "key": "User:",
+      "format": "{##d2bcfd}{user-name}{#}{##e7e0e8}@{#}{##d2bcfd}{host-name} {#}"
+    },
+    {
+      "type": "custom",
+      "format": "{##948f99}└───────────────────────────────────┘{#}"
     },
     "break",
-        {
-     "type": "custom", // Soft and Hardware Start
-     // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-      "format": "{#90}┌────────── {#}{#32}Soft- and Hardware {#}{#90}──────────┐{#}"
-    },    
+    {
+      "type": "custom",
+      "format": "{##948f99}┌────────── {#}{##cdc2db}Soft- and Hardware {#}{##948f99}──────────┐{#}"
+    },
     {
       "type": "os",
       "key": "OS:",
-      "keyColor": "#89DCEB",
-      "format": "{name} {version} {arch} {#90}│{#}" 
-
+      "keyColor": "#f0b7c5",
+      "format": "{name} {version} {arch}"
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel:",
+      "keyColor": "#d2bcfd",
+      "format": "{release}"
+    },
+    {
+      "type": "host",
+      "key": "Host:",
+      "keyColor": "#ffd9e1",
+      "format": "{name}"
     },
     {
       "type": "cpu",
       "key": "CPU:",
       "showPeCoreCount": true,
-      "keyColor": "#CA9EE6",
-      "format": "{name<29} {#90}"
+      "keyColor": "#d2bcfd",
+      "format": "{name<29} {##948f99}"
     },
     {
       "type": "gpu",
       "key": "GPU:",
-      "keyColor": "#FAB387",
-      "format": "{name<24}      {#90}" // somespacing was added manually here, since
-                                           // it prduces two lines, given integrated and dedicated GPU...
+      "keyColor": "#ffd9e1",
+      "format": "{name<24}      {##948f99}"
     },
     {
       "type": "memory",
       "key": "MEMORY:",
-      "keyColor": "#A6E3A1",
-      "format": "{used} / {total} ({#36}{percentage}){#}   {#90}" // here as well
+      "keyColor": "#cdc2db",
+      "format": "{used} / {total} ({##d2bcfd}{percentage}{#})   {##948f99}"
     },
     {
       "type": "disk",
       "key": "DISK:",
-      "keyColor": "#94E2D5",
-      "format": "{size-used} / {size-total} ({#36}{size-percentage}){#} {#90}"
+      "keyColor": "#f0b7c5",
+      "format": "{size-used} / {size-total} ({##d2bcfd}{size-percentage}{#}) {##948f99}"
     },
     {
-            "type": "custom", // End Hardware
-            "format": "{#90}└────────────────────────────────────────┘{#}"
+      "type": "custom",
+      "format": "{##948f99}└────────────────────────────────────────┘{#}"
     },
-    "break",    
+    "break",
     {
-      "type": "colors",
-      "symbol": "cirlce",
-      "paddingLeft": 11,
-      "block":{
-      "range": [1, 7] // 1:7 blocks with color range from 1 to 7
-      }
-    }
+      "type": "custom",
+      "format": "{##948f99}┌────────── {#}{##cdc2db}System Details {#}{##948f99}──────────┐{#}"
+    },
+    {
+      "type": "display",
+      "key": "DISPLAY:",
+      "keyColor": "#d2bcfd",
+      "format": "{width}x{height} @ {refresh-rate} Hz"
+    },
+    {
+      "type": "uptime",
+      "key": "UPTIME:",
+      "keyColor": "#f0b7c5",
+      "format": "{days}d {hours}h {minutes}m"
+    },
+    {
+      "type": "disk",
+      "key": "OS AGE:",
+      "keyColor": "#ffd9e1",
+      "folders": "/",
+      "format": "{create-time:10} ({days} days)"
+    },
+    {
+      "type": "packages",
+      "key": "PACKAGES:",
+      "keyColor": "#cdc2db",
+      "format": "{pacman} (pacman)"
+    },
+    {
+      "type": "localip",
+      "key": "LOCAL IP:",
+      "keyColor": "#d2bcfd",
+      "showIpv6": false,
+      "format": "{ipv4} ({ifname})"
+    },
+    {
+      "type": "custom",
+      "format": "{##948f99}└────────────────────────────────────┘{#}"
+    },
+    "break"
   ]
 }
